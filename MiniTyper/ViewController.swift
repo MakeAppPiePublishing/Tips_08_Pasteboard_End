@@ -10,9 +10,18 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var typingText: UITextView!
+    
+   
+    @IBAction func copyText(_ sender: UIButton) {
+    }
+    
+    @IBAction func pasteText(_ sender: UIButton) {
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        typingText.becomeFirstResponder()
     }
 
     override func didReceiveMemoryWarning() {
