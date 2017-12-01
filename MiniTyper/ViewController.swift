@@ -11,12 +11,22 @@ import UIKit
 class ViewController: UIViewController {
 
     @IBOutlet weak var typingText: UITextView!
-    
+    @IBOutlet weak var backgroundImage: UIImageView!
+    let pasteboard = UIPasteboard.general
    
     @IBAction func copyText(_ sender: UIButton) {
+        pasteboard.string = typingText.text
+        typingText.text = ""
     }
     
     @IBAction func pasteText(_ sender: UIButton) {
+        if pasteboard.hasStrings{
+            typingText.text = pasteboard.string
+            
+        }
+        if pasteboard.hasImages{
+            backgroundImage.image = pasteboard.image
+        }
     }
     override func viewDidLoad() {
         super.viewDidLoad()
